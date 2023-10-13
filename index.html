@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +20,6 @@
 </head>
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="circle-half" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-        </symbol>
         <symbol id="moon-stars-fill" viewBox="0 0 16 16">
             <path
                 d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
@@ -51,37 +48,20 @@
             <li class="nav-item"><a class="nav-link" href="#scrollspyHeading11">11</a></li>
             <li class="nav-item"><a class="nav-link" href="#scrollspyHeading12">12</a></li>
             <li class="nav-item"><a class="nav-link" href="#scrollspyHeading13">13</a></li>
-        
-            <ul class="nav-item dropdown">
-                <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static">
-                    <svg class="theme-icon-active" style="height: 25px; width: 25px;">
-                        <use href="#circle-half"></use>
+            <li class="nav-item">
+                <button type="button" class="btn d-none" data-bs-theme-value="light">
+                    <svg style="height: 25px; width: 25px;">
+                        <use href="#sun-fill"></use>
                     </svg>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                        <button type="button" class="dropdown-item" data-bs-theme-value="light">
-                            <svg class="theme-icon" style="height: 25px; width: 25px;">
-                                <use href="#sun-fill"></use>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="dropdown-item" data-bs-theme-value="dark">
-                            <svg class="theme-icon" style="height: 25px; width: 25px;">
-                                <use href="#moon-stars-fill"></use>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="dropdown-item active" data-bs-theme-value="auto">
-                            <svg class="theme-icon" style="height: 25px; width: 25px;">
-                                <use href="#circle-half"></use>
-                            </svg>
-                        </button>
-                    </li>
-                </ul>
-            </ul>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn" data-bs-theme-value="dark">
+                    <svg style="height: 25px; width: 25px;">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                </button>
+            </li>
         </ul>
     </nav>
     <div data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"

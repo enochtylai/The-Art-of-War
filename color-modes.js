@@ -14,38 +14,25 @@
       return storedTheme
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    return 'dark'
   }
 
   const setTheme = function (theme) {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark')
-    } else {
-      document.documentElement.setAttribute('data-bs-theme', theme)
-    }
+    document.documentElement.setAttribute('data-bs-theme', theme)
   }
 
   setTheme(getPreferredTheme())
 
   const showActiveTheme = theme => {
-    const activeThemeIcon = document.querySelector('.theme-icon-active use')
     const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-    const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
 
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove('active')
+      element.classList.add('d-none')
     })
 
-    btnToActive.classList.add('active')
-    activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+    btnToActive.classList.remove('d-none')
   }
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (storedTheme !== 'light' || storedTheme !== 'dark') {
-      setTheme(getPreferredTheme())
-    }
-  })
-
+  
   window.addEventListener('load', () => {
     showActiveTheme(getPreferredTheme())
 
@@ -53,9 +40,15 @@
       .forEach(toggle => {
         toggle.addEventListener('click', () => {
           const theme = toggle.getAttribute('data-bs-theme-value')
-          localStorage.setItem('theme', theme)
-          setTheme(theme)
-          showActiveTheme(theme)
+          if (theme == 'dark') {
+            localStorage.setItem('theme', 'light')
+            setTheme('light')
+            showActiveTheme('light')
+          } else {
+            localStorage.setItem('theme', 'dark')
+            setTheme('dark')
+            showActiveTheme('dark')
+          }
         })
       })
   })
